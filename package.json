@@ -1,0 +1,25 @@
+{
+  "name": "mustache-user-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyrkuredla/mustache-user-data.git"
+  },
+  "author": "Ryan Kelley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyrkuredla/mustache-user-data/issues"
+  },
+  "homepage": "https://github.com/nyrkuredla/mustache-user-data#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mustache-express": "^1.2.5",
+    "nodemon": "^1.11.0"
+  }
+}
