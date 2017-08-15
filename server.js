@@ -12,8 +12,10 @@ app.use(express.static('public'))
 
 //routes
 app.get('/', function (req, res) {
-  //Fill in with home partial
-  res.send("This is the home page. Please come back when we're finished.");
+  const users = userDal.getUsers();
+  userDal.userAvailable();
+  res.render('home', {  })
+
 })
 
 app.get('/users', function (req, res) {
