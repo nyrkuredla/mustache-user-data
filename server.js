@@ -24,12 +24,11 @@ app.get('/users', function (req, res) {
 
 app.get('/users/:id', function (req, res) {
   const chosenUser = userDal.getUser(req.params.id);
-  res.send(chosenUser);
-  // if (chosenUser) {
-  //   res.render('userDetail', chosenUser)
-  // } else {
-  //   res.send("I mustache you a question. Hahaha! Get it? ...No, but seriously, you have to enter a correct user ID up there, or else I can't help you.")
-  // }
+  if (chosenUser) {
+    res.render('userDetail', chosenUser)
+  } else {
+    res.send("I mustache you a question. Hahaha! Get it? ...No, but seriously, you have to enter a correct user ID up there, or else I can't help you.")
+  }
 })
 
 
