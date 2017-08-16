@@ -12,21 +12,25 @@ app.use(express.static('public'))
 
 //routes
 app.get('/', function (req, res) {
-  const users = userDal.getUsers();
-  userDal.userAvailable();
-  res.render('home', {  })
-
+  res.render('home')
 })
 
 app.get('/users', function (req, res) {
   //Fill in with users partial
-  res.send("User directory page, under construction");
+  const users = userDal.getUsers();
+  userDal.userAvailable();
+  res.render('users', { users: users });
 })
 
-app.get('users/:id', function (req, res) {
-  //Fill in with user detail partial
-  res.send("This is where you'll find details about one user.");
+app.get('/users/:id', function (req, res) {
+  const chosenUser = userDal.getUser(req.params.id);
+  if (chosenUser.id) {
+    res.render('userDetail', chosenUser)
+  } else {
+    res.send("I mustache you a question. Hahaha! Get it? ...No, but seriously, you have to enter a correct user ID up there, or else I can't help you.")
+  }
 })
+
 
 app.set('port', 3000)
 

@@ -1,0 +1,24 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+}
+
+div.container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  background-color: green;
+}
+
+div.user-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 20%;
+  flex-grow: 1;
+}
+
+img.user-pic {
+  border-radius: 100%;
+  
+}

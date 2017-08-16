@@ -6,29 +6,31 @@ function getUsers () {
   return data.users;
 }
 
-function getSingleUser (userId) {
-  let singleUser = {};
+function getUser (userId) {
+  let chosenUser = {}
   for (let i = 0; i < users.length; i++) {
     if (users[i].id === userId) {
-      singleUser = users[i]
+      chosen = users[i];
     };
   }
-  return singleUser
+  return chosenUser
 }
 
 function userAvailable () {
   let userJobs = []
   for (let i = 0; i < users.length; i++) {
     if (users[i].job === null) {
-      users[i].job = "Available for hire."
+      users[i].job = "Available for hire"
     }
     userJobs += users[i].job;
   }
   return userJobs;
 }
 
+
+
 module.exports = {
   getUsers: getUsers,
-  getSingleUser: getSingleUser,
+  getUser: getUser,
   userAvailable: userAvailable
 }
