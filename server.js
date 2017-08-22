@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mustacheExpress = require('mustache-express')
 const userDal = require('./dal')
+const routes = require('./routes/routes')
 
 // Register '.mustache' extension with The Mustache Express
 app.engine('mustache', mustacheExpress())
@@ -11,25 +12,29 @@ app.set('views', __dirname + '/views')
 app.use(express.static('public'))
 
 //routes
-app.get('/', function (req, res) {
-  res.render('home')
-})
+app.use('/', routes)
 
-app.get('/users', function (req, res) {
-  //Fill in with users partial
-  const users = userDal.getUsers();
-  userDal.userAvailable();
-  res.render('users', { users: users });
-})
-
-app.get('/users/:id', function (req, res) {
-  const chosenUser = userDal.getUser(req.params.id);
-  if (chosenUser) {
-    res.render('userDetail', chosenUser)
-  } else {
-    res.send("I mustache you a question. Hahaha! Get it? ...No, but seriously, you have to enter a correct user ID up there, or else I can't help you.")
-  }
-})
+//
+//
+//
+// app.get('/', function (req, res) {
+//   res.render('home')
+// })
+//
+// app.get('/users', function (req, res) {
+//   //Fill in with users partial
+//   const users = userDal.getUsers();
+//   res.render('users', { users: users });
+// })
+//
+// app.get('/users/:id', function (req, res) {
+//   const chosenUser = userDal.getUser(req.params.id);
+//   if (chosenUser) {
+//     res.render('userDetail', chosenUser)
+//   } else {
+//     res.send("I mustache you a question. Hahaha! Get it? ...No, but seriously, you have to enter a correct user ID up there, or else I can't help you.")
+//   }
+// })
 
 
 app.set('port', 3000)
